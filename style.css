@@ -5,6 +5,7 @@ body {
   padding: 50px;
 }
 
+/* Classes for the main window layout */
 .container {
   display: grid;
   grid-template-columns: 150px 150px auto;
@@ -34,6 +35,11 @@ body {
   grid-column: 3;
   grid-row: 4;
   padding: 10px;
+  display: grid;
+  grid-template-columns: 1f 1f;
+  grid-template-rows: 300px auto auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
 }
 
 .icon {
@@ -41,12 +47,6 @@ body {
   grid-column: 1 / span 2;
   grid-row: 1 / span 3;
   display: grid;
-}
-
-.icon > h3 {
-  place-self: center stretch;
-  text-align: center;
-  font-size: 18pt;
 }
 
 .menu {
@@ -59,4 +59,60 @@ body {
   border: 1px solid #00ff00;
   grid-column: 2;
   grid-row: 4;
+}
+
+/* Classes for icon area layout */
+
+.icon > h3 {
+  place-self: center stretch;
+  text-align: center;
+  font-size: 18pt;
+}
+
+.icon > h5 {
+  place-self: center stretch;
+  text-align: center;
+  font-size: 11pt;
+}
+
+/* CLasses for app-body layout */
+.app-body-form {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  border: 1px solid #00ff00;
+  padding: 10px;
+}
+
+.app-body-form * textarea {
+  outline: none;
+  resize: none;
+  width: 100%;
+}
+
+.app-body-red {
+  grid-column: 1;
+  grid-row: 2;
+  border: 1px solid #ff0000;
+  padding: 10px;
+}
+
+.app-body-red > h3 {
+  color: #ff0000;
+}
+
+.app-body-blue {
+  grid-column: 2;
+  grid-row: 2;
+  border: 1px solid #0000ff;
+  padding: 10px;
+}
+
+.app-body-blue > h3 {
+  color: #0000ff;
+}
+
+.app-body-output {
+  grid-column: 1 / span 2;
+  grid-row: 3;
+  border: 1px solid orange;
 }

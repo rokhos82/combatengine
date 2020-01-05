@@ -27,4 +27,4 @@ function controller() {
 
 controller.$inject = [];
 
-angular.module("be.app").factory("be.sim.main",controller);
+angular.module("ce.app").factory("ce.sim.main",controller);

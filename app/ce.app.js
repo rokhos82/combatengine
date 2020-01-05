@@ -1,10 +1,14 @@
-var app = angular.module("be.app", ["ui.router", "ngAnimate", "ngSanitize"]);
+// Create the main module for the CombatEngine /////////////////////////////////
+var app = angular.module("ce.app", ["ui.router", "ngAnimate", "ngSanitize"]);
+
+// Main application version ////////////////////////////////////////////////////
+app.constant("ce.app.version","0.1.0");
 
 app.config(["$stateProvider", "$compileProvider", function($stateProvider, $compileProvider) {
   var states = [{
-    name: 'settings',
-    url: '/settings',
-    component: 'mapgen.app.settings'
+    name: 'news',
+    url: '/news',
+    component: 'ce.app.news'
   }];
 
   _.forEach(states, function(state) {
@@ -14,10 +18,12 @@ app.config(["$stateProvider", "$compileProvider", function($stateProvider, $comp
   $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|http?|ftp|mailto|tel|file|blob|data):/);
 }]);
 
-app.controller("beController", ["$scope", controller]);
+app.controller("beController", ["$scope","ce.app.version", controller]);
 
-function controller($scope) {
+function controller($scope,$appVersion) {
   var $this = this;
+
+  $this.appVersion = $appVersion;
 
   $this.fleets = {};
   $this.teams = {

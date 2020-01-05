@@ -9,40 +9,20 @@
     <script src="https://code.angularjs.org/1.7.5/angular-messages.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.js"></script>
   </head>
-  <body ng-app="be.app">
+  <body ng-app="ce.app">
     <div class="container" ng-controller="beController as $ctrl">
-      <div class="icon"><h3>CombatEngine Prototype</h3></div>
+      <div class="icon">
+        <h3>CombatEngine Prototype</h3>
+        <h5>{{$ctrl.appVersion}}</h5>
+      </div>
       <div class="title">Title Bar</div>
       <div class="navi">Main Navigation</div>
       <div class="cli">CLI</div>
       <div class="menu">Menu</div>
       <div class="submenu">Submenu</div>
-      <div class="app-body">
-        <form ng-cloak>
-          <div class="row">
-            <label for="udl">UDL:</label>
-          </div>
-          <div class="row">
-            <textarea class="wide" ng-model="$ctrl.udl"></textarea>
-          </div>
-          <div class="row">
-            <select ng-options="team as team.label for team in $ctrl.teamOptions track by team.value" ng-model="$ctrl.selectedTeam"></select>
-            <button ng-click="$ctrl.parseFleet($ctrl.udl)">Parse</button>
-          </div>
-          <div class="row">
-            <button ng-click="$ctrl.fire($ctrl.teams)">Start Combat</button>
-          </div>
-        </form>
-        <pre>
-          {{$ctrl.selectedTeam | json}}
-        </pre>
-        <pre>
-          {{$ctrl.log | json}}
-        </pre>
-        <pre>
-          {{$ctrl.teams | json}}
-        </pre>
-      </div>
+      <container class="app-body">
+        <ui-view></ui-view>
+      </container>
       <!--<div class="container">
         <div class="header"></div>
         <div class="main"></div>
@@ -51,6 +31,7 @@
       </div>-->
     </div>
     <script src="https://unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
-    <script src="app/be.app.js"></script>
+    <script src="app/ce.app.js"></script>
+    <script src="app/ce.news.js"></script>
   </body>
 </html>
