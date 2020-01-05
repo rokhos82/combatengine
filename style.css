@@ -114,4 +114,5 @@ body {
 .app-body-output {
   grid-column: 1 / span 2;
   grid-row: 3;
+  border: 1px solid orange;
 }

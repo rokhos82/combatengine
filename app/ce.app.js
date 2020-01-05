@@ -6,9 +6,9 @@ app.constant("ce.app.version","0.1.0");
 
 app.config(["$stateProvider", "$compileProvider", function($stateProvider, $compileProvider) {
   var states = [{
-    name: 'settings',
-    url: '/settings',
-    component: 'mapgen.app.settings'
+    name: 'news',
+    url: '/news',
+    component: 'ce.app.news'
   }];
 
   _.forEach(states, function(state) {
