@@ -5,6 +5,7 @@ body {
   padding: 50px;
 }
 
+/* Classes for the main window layout */
 .container {
   display: grid;
   grid-template-columns: 150px 150px auto;
@@ -43,12 +44,6 @@ body {
   display: grid;
 }
 
-.icon > h3 {
-  place-self: center stretch;
-  text-align: center;
-  font-size: 18pt;
-}
-
 .menu {
   border: 1px solid #00ff00;
   grid-column: 1;
@@ -60,3 +55,20 @@ body {
   grid-column: 2;
   grid-row: 4;
 }
+
+/* Classes for icon area layout */
+
+.icon > h3 {
+  place-self: center stretch;
+  text-align: center;
+  font-size: 18pt;
+}
+
+.icon > h5 {
+  place-self: center stretch;
+  text-align: center;
+  font-size: 11pt;
+}
+
+/* CLasses for app-body layout */
+.app-body-a {}
