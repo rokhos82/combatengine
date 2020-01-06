@@ -7,7 +7,7 @@ app.constant("ce.app.version","0.1.0");
 app.config(["$stateProvider", "$compileProvider", function($stateProvider, $compileProvider) {
   var states = [{
     name: 'news',
-    url: '/news',
+    url: '',
     component: 'ce.app.news'
   }];
 
