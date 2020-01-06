@@ -12,7 +12,7 @@ app.config(["$stateProvider", "$compileProvider", function($stateProvider, $comp
   },{
     name: 'load',
     url: '/load',
-    component: 'ce.app.group'
+    component: 'ce.app.load'
   }];
 
   _.forEach(states, function(state) {
