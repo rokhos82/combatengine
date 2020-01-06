@@ -9,6 +9,10 @@ app.config(["$stateProvider", "$compileProvider", function($stateProvider, $comp
     name: 'news',
     url: '',
     component: 'ce.app.news'
+  },{
+    name: 'load',
+    url: '/load',
+    component: 'ce.app.group'
   }];
 
   _.forEach(states, function(state) {
@@ -18,9 +22,9 @@ app.config(["$stateProvider", "$compileProvider", function($stateProvider, $comp
   $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|http?|ftp|mailto|tel|file|blob|data):/);
 }]);
 
-app.controller("beController", ["$scope","ce.app.version", controller]);
+app.controller("beController", ["$scope","ce.app.version","$state", controller]);
 
-function controller($scope,$appVersion) {
+function controller($scope,$appVersion,$state) {
   var $this = this;
 
   $this.appVersion = $appVersion;
@@ -146,6 +150,7 @@ function controller($scope,$appVersion) {
 
   $this.$onInit = function() {
     $this.loadPresets();
+    $state.go('news');
   };
 
   $this.loadPresets = function() {

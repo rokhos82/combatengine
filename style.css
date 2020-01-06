@@ -1,8 +1,17 @@
+/* Global styling */
 body {
   background-color: #000000;
   color: #00ff00;
   margin: 0px;
   padding: 50px;
+}
+
+a {
+  color: orange;
+}
+
+a:visited {
+  color: orange;
 }
 
 /* Classes for the main window layout */
@@ -22,6 +31,10 @@ body {
   border: 1px solid #00ff00;
   grid-column: 3;
   grid-row: 2;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  padding: 5px;
+  padding-top: 10px;
 }
 
 .cli {
@@ -114,5 +127,12 @@ body {
 .app-body-output {
   grid-column: 1 / span 2;
   grid-row: 3;
+  border: 1px solid orange;
+}
+
+/* Classes for the navi area layout */
+.navi > a {
+  padding: 5px;
+  color: orange;
   border: 1px solid orange;
 }
