@@ -2,12 +2,12 @@
 var app = angular.module("ce.app", ["ui.router", "ngAnimate", "ngSanitize"]);
 
 // Main application version ////////////////////////////////////////////////////
-app.constant("ce.app.version","0.1.0");
+app.constant("ce.app.version","0.1.1");
 
 app.config(["$stateProvider", "$compileProvider", function($stateProvider, $compileProvider) {
   var states = [{
     name: 'news',
-    url: '/news',
+    url: '',
     component: 'ce.app.news'
   }];
 
