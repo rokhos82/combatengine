@@ -1,5 +1,13 @@
 function factory() {
-  var $this = this;
+  var $data = {};
+  $data.groups = {
+    "Red": {},
+    "Blue": {}
+  };
+
+  var $fact = {};
+
+  return $fact;
 }
 
 factory.$inject = [];

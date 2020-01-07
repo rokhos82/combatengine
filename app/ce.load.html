@@ -3,7 +3,7 @@
     <label for="udl">UDL:</label>
   </div>
   <div class="row">
-    <textarea cols="100" rows="10" ng-model="$ctrl.udl"></textarea>
+    <textarea ng-model="$ctrl.udl"></textarea>
   </div>
   <div class="row">
     <select ng-options="team as team.label for team in $ctrl.teamOptions track by team.value" ng-model="$ctrl.selectedTeam"></select>

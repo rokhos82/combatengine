@@ -2,7 +2,7 @@
 var app = angular.module("ce.app", ["ui.router", "ngAnimate", "ngSanitize"]);
 
 // Main application version ////////////////////////////////////////////////////
-app.constant("ce.app.version","0.1.1");
+app.constant("ce.app.version","0.1.4");
 
 app.config(["$stateProvider", "$compileProvider", function($stateProvider, $compileProvider) {
   var states = [{
@@ -22,9 +22,9 @@ app.config(["$stateProvider", "$compileProvider", function($stateProvider, $comp
   $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|http?|ftp|mailto|tel|file|blob|data):/);
 }]);
 
-app.controller("beController", ["$scope","ce.app.version","$state", controller]);
+app.controller("beController", ["$scope","ce.app.version","$state","ce.app.log",controller]);
 
-function controller($scope,$appVersion,$state) {
+function controller($scope,$appVersion,$state,_log) {
   var $this = this;
 
   $this.appVersion = $appVersion;
@@ -149,7 +149,7 @@ function controller($scope,$appVersion,$state) {
   };
 
   $this.$onInit = function() {
-    $this.loadPresets();
+    _log.info("Entering main app controller");
     $state.go('news');
   };
 
