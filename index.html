@@ -16,22 +16,25 @@
         <h5>{{$ctrl.appVersion}}</h5>
       </div>
       <div class="title">Title Bar</div>
-      <div class="navi">Main Navigation</div>
+      <div class="navi">
+        <a ui-sref="news">News</a>
+        <a ui-sref="load">Load</a>
+        <a ui-sref="simulation">Simulation</a>
+      </div>
       <div class="cli">CLI</div>
       <div class="menu">Menu</div>
       <div class="submenu">Submenu</div>
       <container class="app-body">
         <ui-view></ui-view>
       </container>
-      <!--<div class="container">
-        <div class="header"></div>
-        <div class="main"></div>
-        <div class="sidebar"></div>
-        <div class="footer"></div>
-      </div>-->
     </div>
     <script src="https://unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
     <script src="app/ce.app.js"></script>
+    <script src="app/services/ce.objects.js"></script>
+    <script src="app/services/ce.log.js"></script>
+    <script src="app/services/ce.udl.js"></script>
+    <script src="app/services/ce.group.js"></script>
     <script src="app/ce.news.js"></script>
+    <script src="app/ce.load.js"></script>
   </body>
 </html>
