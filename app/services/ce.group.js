@@ -1,11 +1,16 @@
 function factory() {
   var $data = {};
   $data.groups = {
-    "Red": {},
-    "Blue": {}
+    "red": {},
+    "blue": {}
   };
 
   var $fact = {};
+
+  $fact.add = function(team,group) {
+    team = _.toLower(team);
+    $data.groups[team] = group;
+  };
 
   return $fact;
 }

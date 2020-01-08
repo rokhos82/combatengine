@@ -15,7 +15,7 @@
         <h3>CombatEngine Prototype</h3>
         <h5>{{$ctrl.appVersion}}</h5>
       </div>
-      <div class="title">Title Bar</div>
+      <div class="title">{{$ctrl.state.title}}</div>
       <div class="navi">
         <a ui-sref="news">News</a>
         <a ui-sref="load">Load</a>
@@ -31,6 +31,7 @@
     <script src="app/ce.app.js"></script>
     <script src="app/services/ce.objects.js"></script>
     <script src="app/services/ce.log.js"></script>
+    <script src="app/services/ce.state.js"></script>
     <script src="app/services/ce.udl.js"></script>
     <script src="app/services/ce.group.js"></script>
     <script src="app/ce.news.js"></script>
