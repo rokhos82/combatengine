@@ -48,11 +48,6 @@ a:visited {
   grid-column: 3;
   grid-row: 4;
   padding: 10px;
-  display: grid;
-  grid-template-columns: 1f 1f;
-  grid-template-rows: 300px auto auto;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
 }
 
 .icon {
@@ -88,7 +83,15 @@ a:visited {
   font-size: 11pt;
 }
 
-/* CLasses for app-body layout */
+/* CLasses for app-body load layout */
+.app-body-load {
+  display: grid;
+  grid-template-columns: 1f 1f;
+  grid-template-rows: 300px auto auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
 .app-body-form {
   grid-column: 1 / span 2;
   grid-row: 1;

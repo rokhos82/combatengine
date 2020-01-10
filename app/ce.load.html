@@ -1,35 +1,39 @@
-<form class="app-body-form" ng-cloak>
-  <div class="row">
-    <label for="udl">UDL:</label>
-  </div>
-  <div class="row">
-    <textarea ng-model="$ctrl.udl"></textarea>
-  </div>
-  <div class="row">
-    <select ng-options="team as team.label for team in $ctrl.teamOptions track by team.value" ng-model="$ctrl.selectedTeam"></select>
-    <button ng-click="$ctrl.parseFleet($ctrl.udl)">Parse</button>
-  </div>
-  <div class="row">
-    <button ng-click="$ctrl.fire($ctrl.teams)">Start Combat</button>
-  </div>
-</form>
-<container class="app-body-red">
-  <h3>Red Fleet</h3>
-  <pre>
-    {{$ctrl.teams["Red"] | json}}
-  </pre>
-</container>
-<container class="app-body-blue">
-  <h3>Blue Fleet</h3>
-  <pre>
-    {{$ctrl.teams["Blue"] | json}}
-  </pre>
-</container>
-<container class="app-body-output">
-  <pre>
-    {{$ctrl.selectedTeam | json}}
-  </pre>
-  <pre>
-    {{$ctrl.log | json}}
-  </pre>
+<container class="app-body-load">
+  <form class="app-body-form" ng-cloak>
+    <div class="row">
+      <label for="udl">UDL:</label>
+      <p>[group name "&lt;groupnamegoeshere&gt;"]</p>
+      <p>[unit name "&lt;unitname&gt;" size # type &lt;unittype&gt; [&lt;component&gt;]]</p>
+    </div>
+    <div class="row">
+      <textarea ng-model="$ctrl.udl"></textarea>
+    </div>
+    <div class="row">
+      <select ng-options="team as team.label for team in $ctrl.teamOptions track by team.value" ng-model="$ctrl.selectedTeam"></select>
+      <button ng-click="$ctrl.parseGroup($ctrl.udl)">Parse</button>
+    </div>
+    <!--<div class="row">
+      <button ng-click="$ctrl.fire($ctrl.teams)">Start Combat</button>
+    </div>-->
+  </form>
+  <container class="app-body-red">
+    <h3>Red Fleet</h3>
+    <pre>
+      {{$ctrl.teams["Red"] | json}}
+    </pre>
+  </container>
+  <container class="app-body-blue">
+    <h3>Blue Fleet</h3>
+    <pre>
+      {{$ctrl.teams["Blue"] | json}}
+    </pre>
+  </container>
+  <container class="app-body-output">
+    <pre>
+      {{$ctrl.selectedTeam | json}}
+    </pre>
+    <pre>
+      {{$ctrl.log | json}}
+    </pre>
+  </container>
 </container>

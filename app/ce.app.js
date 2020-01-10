@@ -22,12 +22,13 @@ app.config(["$stateProvider", "$compileProvider", function($stateProvider, $comp
   $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|http?|ftp|mailto|tel|file|blob|data):/);
 }]);
 
-app.controller("beController", ["$scope","ce.app.version","$state","ce.app.log",controller]);
+app.controller("beController", ["$scope","ce.app.version","$state","ce.app.log","ce.app.state",controller]);
 
-function controller($scope,$appVersion,$state,_log) {
+function controller($scope,$appVersion,$state,_log,_state) {
   var $this = this;
 
   $this.appVersion = $appVersion;
+  $this.state = _state;
 
   $this.fleets = {};
   $this.teams = {
