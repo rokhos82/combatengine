@@ -7,7 +7,7 @@ function controller($scope,_appVersion,_log,_state) {
     _log.info("Entering the news state");
     $this.log = _log.list("main");
     _state.title = "News";
-    $scope.$apply();
+    //$scope.$apply();
   };
 }
 

@@ -12,6 +12,11 @@ function factory() {
     $data.groups[team] = group;
   };
 
+  $fact.list = function(team) {
+    team = _.toLower(team);
+    return $data.groups[team];
+  };
+
   return $fact;
 }
 

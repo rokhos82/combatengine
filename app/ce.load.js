@@ -3,6 +3,7 @@ function controller($scope,_appVersion,_udl,_groups,_log,_state) {
 
   $this.appVersion = _appVersion;
 
+  $this.teams = {};
   $this.teamOptions = [
     {
       label: "Blue",
@@ -18,11 +19,15 @@ function controller($scope,_appVersion,_udl,_groups,_log,_state) {
     _log.info("Entering the load state");
     $this.log = _log.list("main");
     _state.title = "Load Groups";
-    $scope.$apply();
+    //$scope.$apply();
   };
 
   $this.parseGroup = function(udlStr) {
-    _groups.add(_udl.parseGroup(udlStr));
+    _log.info("Parsing group: " + udlStr);
+    var group = _udl.parseGroup(udlStr);
+    var team = $this.selectedTeam.label;
+    _groups.add(team,group);
+    $this.teams[team] = _groups.list(team);
   };
 }
 

@@ -2,17 +2,18 @@
   <form class="app-body-form" ng-cloak>
     <div class="row">
       <label for="udl">UDL:</label>
+      <p>[group name "&lt;groupnamegoeshere&gt;"]</p>
     </div>
     <div class="row">
       <textarea ng-model="$ctrl.udl"></textarea>
     </div>
     <div class="row">
       <select ng-options="team as team.label for team in $ctrl.teamOptions track by team.value" ng-model="$ctrl.selectedTeam"></select>
-      <button ng-click="$ctrl.parseFleet($ctrl.udl)">Parse</button>
+      <button ng-click="$ctrl.parseGroup($ctrl.udl)">Parse</button>
     </div>
-    <div class="row">
+    <!--<div class="row">
       <button ng-click="$ctrl.fire($ctrl.teams)">Start Combat</button>
-    </div>
+    </div>-->
   </form>
   <container class="app-body-red">
     <h3>Red Fleet</h3>

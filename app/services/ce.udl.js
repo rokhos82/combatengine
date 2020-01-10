@@ -57,7 +57,7 @@ function factory(_objects) {
   $fact.parseGroup = function(str) {
     var groupReg = /\[(?<group>group.+)\]/;
     var groupStr = str.match(groupReg).groups.group;
-    var name = groupStr.match(regex.fleet.name).groups.name;
+    var name = groupStr.match(regex.group.name).groups.name;
     var group = {}; // Need to change this to a copy of ce.app.objects group object
     group.udl = groupStr;
     group.name = name;
