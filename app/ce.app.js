@@ -13,6 +13,10 @@ app.config(["$stateProvider", "$compileProvider", function($stateProvider, $comp
     name: 'load',
     url: '/load',
     component: 'ce.app.load'
+  },{
+    name: 'simulate',
+    url: '/simulate',
+    component: 'ce.app.simulate'
   }];
 
   _.forEach(states, function(state) {

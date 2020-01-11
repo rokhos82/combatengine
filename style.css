@@ -85,8 +85,9 @@ a:visited {
 
 /* CLasses for app-body load layout */
 .app-body-load {
+  max-width: 1200px;
   display: grid;
-  grid-template-columns: 1f 1f;
+  grid-template-columns: 600px 600px;
   grid-template-rows: 300px auto auto;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
