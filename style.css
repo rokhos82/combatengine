@@ -85,16 +85,17 @@ a:visited {
 
 /* CLasses for app-body load layout */
 .app-body-load {
+  max-width: 1200px;
   display: grid;
-  grid-template-columns: 1f 1f;
-  grid-template-rows: 300px auto auto;
+  grid-template-columns: 600px 600px;
+  grid-template-rows: auto auto auto auto ;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 }
 
 .app-body-form {
   grid-column: 1 / span 2;
-  grid-row: 1;
+  grid-row: 2;
   border: 1px solid #00ff00;
   padding: 10px;
 }
@@ -102,12 +103,12 @@ a:visited {
 .app-body-form * textarea {
   outline: none;
   resize: none;
-  width: 100%;
+  width: 95%;
 }
 
 .app-body-red {
   grid-column: 1;
-  grid-row: 2;
+  grid-row: 3;
   border: 1px solid #ff0000;
   padding: 10px;
 }
@@ -118,7 +119,7 @@ a:visited {
 
 .app-body-blue {
   grid-column: 2;
-  grid-row: 2;
+  grid-row: 3;
   border: 1px solid #0000ff;
   padding: 10px;
 }
@@ -129,8 +130,13 @@ a:visited {
 
 .app-body-output {
   grid-column: 1 / span 2;
-  grid-row: 3;
+  grid-row: 4;
   border: 1px solid orange;
+}
+
+.load-help {
+  grid-column: 1 / span 2;
+  grid-row: 1;
 }
 
 /* Classes for the navi area layout */
