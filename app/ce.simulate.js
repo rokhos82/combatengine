@@ -10,7 +10,18 @@
       $this.log = _log.list("main");
       _state.title = "Simulate";
       $this.teams["Red"] = _groups.list("Red");
+      $this.teams["Blue"] = _groups.list("Blue");
       //$scope.$apply();
+    };
+
+    $this.start = function() {
+      _log.info("Starting combat");
+      var worker = new Worker('app/services/ce.worker.js');
+      worker.postMessage("Saying hello from the CombatEngine");
+      setTimeout(function () {
+        _log.info("Terminating worker thread");
+        worker.terminate();
+      }, 10);
     };
   }
 
