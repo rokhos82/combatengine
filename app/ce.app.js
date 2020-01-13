@@ -2,7 +2,7 @@
 var app = angular.module("ce.app", ["ui.router", "ngAnimate", "ngSanitize"]);
 
 // Main application version ////////////////////////////////////////////////////
-app.constant("ce.app.version","0.1.4");
+app.constant("ce.app.version","0.2.4");
 
 app.config(["$stateProvider", "$compileProvider", function($stateProvider, $compileProvider) {
   var states = [{
@@ -13,6 +13,10 @@ app.config(["$stateProvider", "$compileProvider", function($stateProvider, $comp
     name: 'load',
     url: '/load',
     component: 'ce.app.load'
+  },{
+    name: 'simulate',
+    url: '/simulate',
+    component: 'ce.app.simulate'
   }];
 
   _.forEach(states, function(state) {
