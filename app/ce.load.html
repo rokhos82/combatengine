@@ -1,9 +1,22 @@
 <container class="app-body-load">
+  <div class="load-help">
+    <p>Group definitions are encoded using JSON.  The following are required fields for groups:</p>
+    <ul>
+      <li>name</li>
+      <li>units</li>
+    </ul>
+    <p>Unit definitions are encoded using JSON.  The following are required fields for units:</p>
+    <ul>
+      <li>name</li>
+      <li>size</li>
+      <li>type</li>
+    </ul>
+    <p>Here is an example group and unit</p>
+    <pre>{{$ctrl.example | json }}</pre>
+  </div>
   <form class="app-body-form" ng-cloak>
     <div class="row">
       <label for="udl">UDL:</label>
-      <p>[group name "&lt;groupnamegoeshere&gt;"]</p>
-      <p>[unit name "&lt;unitname&gt;" size # type &lt;unittype&gt; [&lt;component&gt;]]</p>
     </div>
     <div class="row">
       <textarea rows="10" ng-model="$ctrl.udl"></textarea>

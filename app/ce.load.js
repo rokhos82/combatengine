@@ -4,6 +4,8 @@
 
     $this.appVersion = _appVersion;
 
+    $this.example = angular.fromJson(`{"name":"Test","units": {"Test Unit": {"name": "Test Unit","size": 1,"type": "test"}}}`);
+
     $this.teams = {};
     $this.teamOptions = [
       {
