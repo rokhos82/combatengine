@@ -1,4 +1,7 @@
 (function () {
+  /*
+  ** Simulation UI controller.
+  */
   function controller($scope,_appVersion,_log,_state,_groups) {
     $this = this;
 
@@ -21,7 +24,7 @@
       setTimeout(function () {
         _log.info("Terminating worker thread");
         worker.terminate();
-      }, 10);
+      }, 10000);
     };
   }
 
