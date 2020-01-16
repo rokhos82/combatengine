@@ -8,8 +8,11 @@
       <div class="sim-conditions-row">
         <label>Turns to Run</label><input type="number" />
       </div>
-      <button ng-click="$ctrl.start()">Start Combat</button>
+      <button class="sim-btn" ng-click="$ctrl.setup()">Setup Combat</button><button ng-disabled="!$ctrl.armed" class="sim-btn" ng-click="$ctrl.start()">Start Combat</button>
     </form>
+  </container>
+  <container class="sim-status">
+    Current status: <span class="sim-status-text">{{$ctrl.status}}</span>
   </container>
   <container class="sim-teams">
     <h1>Teams</h1>

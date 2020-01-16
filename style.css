@@ -1,6 +1,6 @@
 /* Global styling */
 body {
-  background-color: #000000;
+  background-color: #232323;
   color: #00ff00;
   margin: 0px;
   padding: 50px;
@@ -19,6 +19,7 @@ a:visited {
   display: grid;
   grid-template-columns: 150px 150px auto;
   grid-template-rows: 40px 40px 40px auto;
+  box-shadow: 4px 4px 8px orange;
 }
 
 .title {
@@ -170,9 +171,19 @@ a:visited {
   margin-left: 10px;
 }
 
-.sim-teams {
+.sim-status {
   grid-column: 1 / span 2;
   grid-row: 2;
+}
+
+.sim-status-text {
+  color: orange;
+  text-decoration: underline;
+}
+
+.sim-teams {
+  grid-column: 1 / span 2;
+  grid-row: 3;
 }
 
 .sim-teams-flex {
@@ -184,5 +195,30 @@ a:visited {
 .sim-teams-card {
   margin: 10px;
   padding: 10px;
-  border: 1px solid #0000ff;
+  border: 2px solid #00e000;
+  background-color: black;
+  box-shadow: 2px 2px 4px orange;
+}
+
+.sim-teams-card h3 {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: underline;
+  color: orange;
+}
+
+.sim-teams-card > ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+.sim-teams-card * li {
+  margin: 0px;
+  padding: 0px;
+}
+
+.sim-btn {
+  margin: 5px;
+  padding: 5px;
 }
