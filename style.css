@@ -1,6 +1,6 @@
 /* Global styling */
 body {
-  background-color: #000000;
+  background-color: #232323;
   color: #00ff00;
   margin: 0px;
   padding: 50px;
@@ -19,6 +19,7 @@ a:visited {
   display: grid;
   grid-template-columns: 150px 150px auto;
   grid-template-rows: 40px 40px 40px auto;
+  box-shadow: 4px 4px 8px orange;
 }
 
 .title {
@@ -144,4 +145,80 @@ a:visited {
   padding: 5px;
   color: orange;
   border: 1px solid orange;
+}
+
+/* Classes for the simulation app pane */
+.app-body-sim {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 600px 600px;
+  grid-template-rows: auto auto auto auto ;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.sim-conditions {
+  grid-column:  1 / span 2;
+  grid-row: 1;
+}
+
+.sim-conditions-row {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sim-conditions-row > input {
+  margin-left: 10px;
+}
+
+.sim-status {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+}
+
+.sim-status-text {
+  color: orange;
+  text-decoration: underline;
+}
+
+.sim-teams {
+  grid-column: 1 / span 2;
+  grid-row: 3;
+}
+
+.sim-teams-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.sim-teams-card {
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #00e000;
+  background-color: black;
+  box-shadow: 2px 2px 4px orange;
+}
+
+.sim-teams-card h3 {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: underline;
+  color: orange;
+}
+
+.sim-teams-card > ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+.sim-teams-card * li {
+  margin: 0px;
+  padding: 0px;
+}
+
+.sim-btn {
+  margin: 5px;
+  padding: 5px;
 }
