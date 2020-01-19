@@ -1,5 +1,5 @@
 (function () {
   /*
-  ** Main Simulation Worker
+  **  Simulation Pool Worker
   */
 })();

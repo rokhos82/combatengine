@@ -2,7 +2,7 @@
 var app = angular.module("ce.app", ["ui.router", "ngAnimate", "ngSanitize","ce.service.uuid"]);
 
 // Main application version ////////////////////////////////////////////////////
-app.constant("ce.app.version","0.2.9");
+app.constant("ce.app.version","0.2.10");
 
 app.config(["$stateProvider", "$compileProvider", function($stateProvider, $compileProvider) {
   var states = [{

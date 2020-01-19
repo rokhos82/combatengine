@@ -1,6 +1,6 @@
 /* Global styling */
 body {
-  background-color: #232323;
+  background-color: #121212;
   color: #00ff00;
   margin: 0px;
   padding: 50px;
@@ -14,12 +14,32 @@ a:visited {
   color: orange;
 }
 
+textarea {
+  background-color: #121212;
+  color: orange;
+}
+
+/* Generic style classes */
+::selection {
+  background: lightgray;
+}
+
 /* Classes for the main window layout */
 .container {
   display: grid;
   grid-template-columns: 150px 150px auto;
   grid-template-rows: 40px 40px 40px auto;
-  box-shadow: 4px 4px 8px orange;
+  background-color: #232323;
+  /*box-shadow: 4px 4px 8px orange;*/
+  box-shadow:
+    0px -10px 0 -5px #232323,
+    0px -10px 0 -4px rgba(0,255,0,0.85),
+    0px -20px 0 -10px #202020,
+    0px -20px 0 -9px rgba(0,255,0,0.70),
+    0px -30px 0 -15px #171717,
+    0px -30px 0 -14px rgba(0,255,0,0.55),
+    0px -40px 0 -20px #141414,
+    0px -40px 0 -19px rgba(0,255,0,0.40);
 }
 
 .title {
@@ -86,9 +106,9 @@ a:visited {
 
 /* CLasses for app-body load layout */
 .app-body-load {
-  max-width: 1200px;
+  max-width: 1000px;
   display: grid;
-  grid-template-columns: 600px 600px;
+  grid-template-columns: 500px 500px;
   grid-template-rows: auto auto auto auto ;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
@@ -101,7 +121,7 @@ a:visited {
   padding: 10px;
 }
 
-.app-body-form * textarea {
+.app-body-load textarea {
   outline: none;
   resize: none;
   width: 95%;
@@ -147,11 +167,18 @@ a:visited {
   border: 1px solid orange;
 }
 
+/* Classes for news app pane */
+.app-body-news {
+  max-width: 1000px;
+  width: 1000px;
+}
+
 /* Classes for the simulation app pane */
 .app-body-sim {
-  max-width: 1200px;
+  max-width: 1000px;
+  width: 1000px;
   display: grid;
-  grid-template-columns: 600px 600px;
+  grid-template-columns: 500px 500px;
   grid-template-rows: auto auto auto auto ;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
