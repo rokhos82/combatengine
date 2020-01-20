@@ -6,6 +6,8 @@
   ** workers.
   */
 
+  console.info("Setting up foreman Worker");
+
   // Import utility scripts
   importScripts("https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.js");
 
@@ -15,4 +17,8 @@
 
     if(message.cmd === "init") {}
   };
+
+  setTimeout(function() {
+    postMessage("Hello from foreman");
+  },5000);
 })();
