@@ -3,10 +3,10 @@
     <p>Welcome to CombatEngine Simulate.</p>
     <form>
       <div class="sim-conditions-row">
-        <label>Simulation Title</label><input type="text" />
+        <label>Simulation Title</label><input type="text" ng-model="$ctrl.conditions.title" />
       </div>
       <div class="sim-conditions-row">
-        <label>Turns to Run</label><input type="number" />
+        <label>Turns to Run</label><input type="number" ng-model="$ctrl.conditions.turns" />
       </div>
       <button class="sim-btn" ng-click="$ctrl.setup()">Setup Combat</button><button ng-disabled="!$ctrl.armed" class="sim-btn" ng-click="$ctrl.start()">Start Combat</button>
     </form>

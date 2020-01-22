@@ -1,16 +1,30 @@
 (function(){
   var overseer = function(_log) {
-    var $this = this;
+    var foreman = null;
 
-    _log.info("Building the overseer object");
+    var os = {
+      init: function() {
+        _log.info('Initializing the overseer');
+        // Create the foreman worker thread
+        foreman = new Worker('app/workers/worker.foreman.js');
 
-    var foreman = new Worker('app/workers/worker.foreman.js');
-
-    foreman.onmessage = function(e) {
-      _log.info(e.data);
+        // Create the messange handler for foreman
+        foreman.onmessage = function(e) {
+          _log.info(e.data);
+        };
+      },
+      destroy: function() {
+        // Destroy the foreman worker thread
+        foreman.terminate();
+      },
+      setupSimulation: function(data) {
+        var msg = {
+          cmd: "setup",
+          data: data
+        };
+        foreman.postMessage(msg);
+      }
     };
-
-    var os = {};
     return os;
   };
 

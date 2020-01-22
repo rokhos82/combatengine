@@ -15,10 +15,23 @@
   onmessage = function(event) {
     var message = event.data;
 
-    if(message.cmd === "init") {}
+    // Which command was sent?
+    if(message.cmd === "setup") {
+      console.info(message.data);
+    }
+    else if(message.cmd === "start") {}
+    else if(message.cmd === "status") {}
+    else if(message.cmd === "pause") {}
+    else if(message.cmd === "term") {}
   };
 
-  setTimeout(function() {
-    postMessage("Hello from foreman");
-  },5000);
+  function setupCombat() {}
+
+  function startCombat() {}
+
+  function statusCheckCombat() {}
+
+  function pauseCombat() {}
+
+  function terminateCombat() {}
 })();
