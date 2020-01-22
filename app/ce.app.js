@@ -2,7 +2,7 @@
 var app = angular.module("ce.app", ["ui.router", "ngAnimate", "ngSanitize","ce.service.uuid"]);
 
 // Main application version ////////////////////////////////////////////////////
-app.constant("ce.app.version","0.2.9");
+app.constant("ce.app.version","0.2.11");
 
 app.config(["$stateProvider", "$compileProvider", function($stateProvider, $compileProvider) {
   var states = [{
@@ -26,7 +26,7 @@ app.config(["$stateProvider", "$compileProvider", function($stateProvider, $comp
   $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|http?|ftp|mailto|tel|file|blob|data):/);
 }]);
 
-app.controller("beController", ["$scope","ce.app.version","$state","ce.app.log","ce.app.state",controller]);
+app.controller("beController", ["$scope","ce.app.version","$state","ce.app.log","ce.app.state","ce.app.overseer",controller]);
 
 function controller($scope,$appVersion,$state,_log,_state) {
   var $this = this;
