@@ -1,8 +1,8 @@
 // Create the main module for the CombatEngine /////////////////////////////////
-var app = angular.module("ce.app", ["ui.router", "ngAnimate", "ngSanitize"]);
+var app = angular.module("ce.app", ["ui.router", "ngAnimate", "ngSanitize","ce.service.uuid"]);
 
 // Main application version ////////////////////////////////////////////////////
-app.constant("ce.app.version","0.2.4");
+app.constant("ce.app.version","0.2.12");
 
 app.config(["$stateProvider", "$compileProvider", function($stateProvider, $compileProvider) {
   var states = [{
@@ -26,9 +26,9 @@ app.config(["$stateProvider", "$compileProvider", function($stateProvider, $comp
   $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|http?|ftp|mailto|tel|file|blob|data):/);
 }]);
 
-app.controller("beController", ["$scope","ce.app.version","$state","ce.app.log","ce.app.state",controller]);
+app.controller("beController", ["$scope","ce.app.version","$state","ce.app.log","ce.app.state","ce.app.overseer",controller]);
 
-function controller($scope,$appVersion,$state,_log,_state) {
+function controller($scope,$appVersion,$state,_log,_state,_overseer) {
   var $this = this;
 
   $this.appVersion = $appVersion;
@@ -155,28 +155,13 @@ function controller($scope,$appVersion,$state,_log,_state) {
 
   $this.$onInit = function() {
     _log.info("Entering main app controller");
+    _overseer.init();
     $state.go('news');
   };
 
-  $this.loadPresets = function() {
-    var blueOne = `[fleet name "Blue One"]
-[unit name "Beam Frigate B1" size 3 type starship [armor max 9 current 9][shield max 1 current 1][battery volley 4 target 15][battery volley 4 target 15][stl defense 15][ftl cruise 5 max 6][sensor 2 lrs]]
-[unit name "Beam Frigate B2" size 3 type starship [armor max 9 current 9][shield max 1 current 1][battery volley 4 target 15][battery volley 4 target 15][stl defense 15][ftl cruise 5 max 6][sensor 2 lrs]]`;
-    var redTwo = `[fleet name "Red Two"]
-[unit name "Beam Frigate B1" size 3 type starship [armor max 9 current 9][shield max 1 current 1][battery volley 4 target 15][battery volley 4 target 15][stl defense 15][ftl cruise 5 max 6][sensor 2 lrs]]
-[unit name "Beam Frigate B2" size 3 type starship [armor max 9 current 9][shield max 1 current 1][battery volley 4 target 15][battery volley 4 target 15][stl defense 15][ftl cruise 5 max 6][sensor 2 lrs]]`;
-
-    // Add the Blue One fleet to the Blue team
-    $this.selectedTeam = $this.teamOptions[0];
-    $this.parseFleet(blueOne);
-
-    // Add the Red Two fleet to the Red team
-    $this.selectedTeam = $this.teamOptions[1];
-    $this.parseFleet(redTwo);
-
-    // Clear the input form controls
-    $this.selectedTeam = undefined;
-    $this.udl = "";
+  $this.$onDestroy = function() {
+    _log.info("Leaving main app controller");
+    _overseer.destroy();
   };
 
   $this.parseFleet = function(str) {
@@ -277,52 +262,6 @@ function controller($scope,$appVersion,$state,_log,_state) {
         r.lastIndex = 0;
       });
     });
-  };
-
-  $this.log = [];
-  var combatLogEntry = function(turn,teams) {
-    this.turn = turn;
-    this.teams = _.cloneDeep(teams);
-    this.log = [];
-  };
-
-  combatLogEntry.prototype.addTextLog = function(text) {
-    this.log.push(text);
-  };
-
-  combatLogEntry.prototype.getTextLog = function() {
-    return this.log;
-  };
-
-  combatNarrativeLog = function() {
-    this.log = [];
-  };
-
-  combatNarrativeLog.prototype.add = function(text) {
-    this.log.push(text);
-  };
-
-  combatNarrativeLog.prototype.get = function() {
-    return this.log;
-  };
-
-  $this.fire = function(teams) {
-    // This function starts the combat simulation
-    var log = new combatNarrativeLog();
-    log.add("Beginning Combat");
-    _.forEach(teams,function(team) {
-      log.add("Team " + team.name);
-    });
-    log.add("Begin Turn 1");
-    $this.doCombatTurn(log,teams);
-    $this.log = log.get();
-  };
-
-  $this.doCombatTurn = function(log,teams) {
-    log.add("Determining Combatants");
-    log.add("Selecting Targets");
-    log.add("Firing Weapons");
-    log.add("Resolving Damage & Effects");
   };
 
   $this.parseUdl = function(udl) {
