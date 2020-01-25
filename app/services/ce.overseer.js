@@ -1,6 +1,23 @@
 (function(){
-  var overseer = function(_log) {
+  var overseer = function(_log,_uuid) {
     var foreman = null;
+
+    // ForemanWorker object - wraps a Web Worker in a custom interface
+    var ForemanWorker = function() {
+      var $this = this;
+
+      $this.thread = new Worker('app/workers/worker.foreman.js');
+      $this.uuid = _uuid.generate();
+
+      $this.thread.postMessage({
+        cmd: 'init',
+        uuid: $this.uuid
+      });
+    };
+
+    ForemanWorker.prototype.addListener = function(func) {
+      this.thread.addEventListener('message',func)
+    };
 
     var os = {
       init: function() {
@@ -28,7 +45,7 @@
     return os;
   };
 
-  overseer.$inject = ["ce.app.log"];
+  overseer.$inject = ["ce.app.log","UuidService"];
 
   angular.module("ce.app").factory("ce.app.overseer",overseer);
 })();

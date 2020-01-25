@@ -27,8 +27,8 @@
     $this.queue = [];
   };
 
-  SimWorker.prototype.setListenter = function(func) {
-    $this.thread.onmessage = func;
+  SimWorker.prototype.setListener = function(func) {
+    this.thread.onmessage = func;
   };
 
   // Local variables
