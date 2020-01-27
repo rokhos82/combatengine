@@ -5,7 +5,7 @@ angular.module("ce.app").constant("ce.app.objects",{
     "msg": "",
     "level": ""
   },
-  "cmd": {
+  commands: {
     init: {cmd:"init",data:null},
     reg: {cmd:"reg",data:null},
     setup: {cmd:"setup",data:null},

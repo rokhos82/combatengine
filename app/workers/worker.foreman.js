@@ -11,6 +11,8 @@
   // Import utility scripts
   importScripts("https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.js");
 
+  var settings = {};
+
   var SimWorker = function(uuid) {
     var $this = this;
 
@@ -38,7 +40,12 @@
     var message = event.data;
 
     // Which command was sent?
-    if(message.cmd === "setup") {
+    if(message.cmd === "init") {
+      // Save the ID for this ForemanWorker and the available commands
+      settings.uuid = message.uuid;
+      settings.commands = message.commands;
+    }
+    else if(message.cmd === "setup") {
       var uuid = message.data.uuid;
       console.info(`Setting up combat ${uuid}`);
       var w = new SimWorker(uuid);
