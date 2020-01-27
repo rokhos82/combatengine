@@ -13,24 +13,35 @@
 
   var settings = {};
 
-  var SimWorker = function(uuid) {
+  var SimWorker = function(data) {
     var $this = this;
+    var uuid = data.uuid;
 
     $this.thread = new Worker("./worker.sim.js");
     $this.uuid = uuid;
+    $this.teams = data.teams;
+    $this.conditions = data.conditions;
 
     $this.thread.postMessage({
       cmd: "init",
-      data: {
-        uuid: uuid
-      }
+      uuid: uuid
     });
 
     $this.queue = [];
+
+    this.thread.onmessage = simulationListener;
   };
 
   SimWorker.prototype.setListener = function(func) {
     this.thread.onmessage = func;
+  };
+
+  SimWorker.prototype.setupCombat = function() {
+    this.thread.postMessage({
+      cmd: "setup",
+      teams: this.teams,
+      conditions: this.conditions
+    });
   };
 
   // Local variables
@@ -46,10 +57,11 @@
       settings.commands = message.commands;
     }
     else if(message.cmd === "setup") {
-      var uuid = message.data.uuid;
+      var data = message.data;
+      var uuid = data.uuid;
       console.info(`Setting up combat ${uuid}`);
-      var w = new SimWorker(uuid);
-      w.setListener(simulationListener);
+      var w = new SimWorker(data);
+      //w.setListener(simulationListener);
       simWorkers[uuid] = w;
     }
     else if(message.cmd === "start") {}
@@ -83,6 +95,13 @@
       // Initilization is done
       var uuid = message.data.uuid;
       simWorkers[uuid].postMessage();
+    }
+    else if(message.cmd === "reg") {
+      var uuid = message.uuid;
+      simWorkers[uuid].setupCombat()
+    }
+    else if(message.cmd === "ready") {
+      console.info(`SimWorker ${message.uuid} is ready!`);
     }
   };
 })();
