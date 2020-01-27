@@ -1,21 +1,31 @@
 <container class="app-body-load">
   <div class="load-help">
-    <p>Group definitions are encoded using JSON.  The following are required fields for groups:</p>
-    <ul>
-      <li>name</li>
-      <li>units</li>
-    </ul>
-    <p>Unit definitions are encoded using JSON.  The following are required fields for units:</p>
-    <ul>
-      <li>name</li>
-      <li>size</li>
-      <li>type</li>
-    </ul>
-    <p>Here is an example group and unit</p>
-    <div class="row">
-      <textarea class="hightlight" rows="10" readonly="readonly" ng-model="$ctrl.example"></textarea>
+    <p>
+      Team definitions are JSON strings.  There are a few required fields.  Right now those are:
+      <ul>
+        <li>units - an array of unit objects (see below for required fields)</li>
+      </ul>
+    </p>
+    <p>
+      Unit definitions are also JSON strings.  There are currently 3 required fields:
+      <ul>
+        <li>name</li>
+        <li>size</li>
+        <li>type</li>
+      </ul>
+    </p>
+    <div>
+      <h3>Here are some examples:</h3>
+      <div class="row">
+        <label>Example 1:</label><input type="text" ng-model="$ctrl.example" readonly="readonly" />
+      </div>
+      <div class="row">
+        <label>Example 2:</label><input type="text" ng-model="$ctrl.blueExample" readonly="readonly" />
+      </div>
+      <div>
+        <label>Example 3:</label><input type="text" ng-model="$ctrl.redExample" readonly="readonly" />
+      </div>
     </div>
-    <!--<pre>{{$ctrl.example | json }}</pre>-->
   </div>
   <form class="app-body-form" ng-cloak>
     <div class="row">
