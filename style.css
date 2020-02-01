@@ -127,6 +127,10 @@ textarea {
   width: 95%;
 }
 
+.app-body-load input {
+  width: 100%;
+}
+
 .app-body-red {
   grid-column: 1;
   grid-row: 3;

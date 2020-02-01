@@ -6,6 +6,8 @@
 
     //$this.example = angular.fromJson(`{"name":"Test","units": {"Test Unit": {"name": "Test Unit","size": 1,"type": "test"}}}`);
     $this.example = `{"name":"Test","units": {"Test Unit": {"name": "Test Unit","size": 1,"type": "test"}}}`;
+    $this.blueExample = `{"name":"Blue Two","units": [{"name": "Blue Two 1","size": 1,"type": "test"},{"name": "Blue Two 2","size": 1,"type": "test"}]}`;
+    $this.redExample = `{"name":"Red One","units": [{"name": "Red One 1","size": 1,"type": "test"},{"name": "Red One 2","size": 1,"type": "test"},{"name": "Red One 3","size": 1,"type": "test"}]}`;
 
     $this.teams = {};
     $this.teamOptions = [
