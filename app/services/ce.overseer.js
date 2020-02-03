@@ -45,6 +45,12 @@
           data: data
         };
         foreman.postMessage(msg);
+      },
+      startSimulation: function(uuid) {
+        foreman.postMessage({
+          cmd: "start",
+          uuid: uuid
+        })
       }
     };
     return os;

@@ -45,16 +45,12 @@
         "conditions": $this.conditions
       };
       _overseer.setupSimulation($this.simulations[uuid]);
+      $this.uuid = uuid;
     };
 
     $this.start = function() {
-      _log.info("Starting combat");
-      var worker = new Worker('app/services/ce.worker.js');
-      worker.postMessage("Saying hello from the CombatEngine");
-      setTimeout(function () {
-        _log.info("Terminating worker thread");
-        worker.terminate();
-      }, 10000);
+      _log.info("Overseer is starting combat");
+      _overseer.startSimulation($this.uuid);
     };
   }
 

@@ -10,6 +10,21 @@
 
   var settings = {};
 
+  // Battlefield Object
+  var Battlefield = function() {
+    var $this = this;
+
+    $this.regions = [];
+  };
+
+  // Combat Object
+  var Combat = function() {
+    var $this = this;
+
+    $this.battlefield = new Battlefield();
+  };
+
+  // PoolWorker Object
   var PoolWorker = function(uuid) {
     var $this = this;
 
@@ -47,7 +62,10 @@
       setupCombat();
     }
     else if(message.cmd === "ready") {}
-    else if(message.cmd === "start") {}
+    else if(message.cmd === "start") {
+      console.info(`Starting combat for ${settings.uuid}`);
+      startCombat();
+    }
     else if(message.cmd === "run") {}
     else if(message.cmd === "done") {}
   };
@@ -106,5 +124,26 @@
       cmd: "ready",
       uuid: settings.uuid
     });
+  }
+
+  function startCombat() {
+    // Main combat loop
+    var combatDone = false;
+    var turnCount = 0;
+
+    while(!combatDone && turnCount < settings.conditions.turns) {
+      // Get the participants
+      var participants = settings.unitsAll;
+
+      _.forEach(participants,function(unit) {
+        var team = unit.team;
+        var target = _.sample(settings.targets[team]);
+        console.log(`${unit.name} is targetting ${target}`);
+      });
+
+      // Last thing to do is increment the turn count
+      turnCount += 1;
+      console.info(`Turn Count: ${turnCount}`);
+    }
   }
 })();

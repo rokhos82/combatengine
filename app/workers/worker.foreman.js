@@ -44,6 +44,12 @@
     });
   };
 
+  SimWorker.prototype.startCombat = function() {
+    this.thread.postMessage({
+      cmd: "start"
+    });
+  };
+
   // Local variables
   var simWorkers = {};
 
@@ -64,7 +70,11 @@
       //w.setListener(simulationListener);
       simWorkers[uuid] = w;
     }
-    else if(message.cmd === "start") {}
+    else if(message.cmd === "start") {
+      // Start up the worker thread!
+      var uuid = message.uuid;
+      simWorkers[uuid].startCombat();
+    }
     else if(message.cmd === "status") {}
     else if(message.cmd === "pause") {}
     else if(message.cmd === "term") {}
