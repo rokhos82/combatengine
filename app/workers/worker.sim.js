@@ -119,6 +119,14 @@
 
     console.info(settings);
 
+    // Setup unit attacks
+    _.forEach(unitList,function(unit) {
+      // Get the attacks from the unit components.
+      var attacks = _.filter(unit.components,'attack');
+      console.info(attacks);
+      unit.attacks = attacks;
+    });
+
     // Let the ForemanWorker know that setup is finished
     postMessage({
       cmd: "ready",
@@ -135,15 +143,23 @@
       // Get the participants
       var participants = settings.unitsAll;
 
+      // For each unit do things
       _.forEach(participants,function(unit) {
-        var team = unit.team;
-        var target = _.sample(settings.targets[team]);
-        console.log(`${unit.name} is targetting ${target}`);
+        unitTurnActions(unit);
       });
 
       // Last thing to do is increment the turn count
       turnCount += 1;
       console.info(`Turn Count: ${turnCount}`);
     }
+  }
+
+  function unitTurnActions(unit) {
+    // Get a target figured out
+    var team = unit.team;
+    var target = settings.unitsAll[_.sample(settings.targets[team])];
+    console.log(`${unit.name} is targetting ${target.name}`);
+
+    // Do the attack thing
   }
 })();
