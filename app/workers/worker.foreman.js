@@ -113,5 +113,8 @@
     else if(message.cmd === "ready") {
       console.info(`SimWorker ${message.uuid} is ready!`);
     }
+    else if(message.cmd === "update") {
+      console.info(message.update);
+    }
   };
 })();

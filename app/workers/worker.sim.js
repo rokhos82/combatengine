@@ -120,12 +120,13 @@
     console.info(settings);
 
     // Setup unit attacks
-    _.forEach(unitList,function(unit) {
+    _.forEach(settings.unitsAll,function(unit) {
       // Get the attacks from the unit components.
       var attacks = _.filter(unit.components,'attack');
-      console.info(attacks);
       unit.attacks = attacks;
     });
+
+    console.info(settings.unitsAll);
 
     // Let the ForemanWorker know that setup is finished
     postMessage({
@@ -138,6 +139,7 @@
     // Main combat loop
     var combatDone = false;
     var turnCount = 0;
+    var update = [];
 
     while(!combatDone && turnCount < settings.conditions.turns) {
       // Get the participants
@@ -145,8 +147,11 @@
 
       // For each unit do things
       _.forEach(participants,function(unit) {
-        unitTurnActions(unit);
+        update.push(unitTurnActions(unit));
       });
+
+      sendTurnUpdate(_.flattenDeep(update));
+      update = [];
 
       // Last thing to do is increment the turn count
       turnCount += 1;
@@ -155,11 +160,24 @@
   }
 
   function unitTurnActions(unit) {
+    var update = [];
     // Get a target figured out
     var team = unit.team;
     var target = settings.unitsAll[_.sample(settings.targets[team])];
-    console.log(`${unit.name} is targetting ${target.name}`);
+    update.push(`${unit.name} is targetting ${target.name}`)
 
     // Do the attack thing
+    _.forEach(unit.attacks,function(atk){
+      update.push(`${unit.name} attacks with ${atk.name} for ${atk.attack.volley}`);
+    });
+
+    return update;
+  }
+
+  function sendTurnUpdate(update) {
+    postMessage({
+      cmd: "update",
+      update: update
+    });
   }
 })();
