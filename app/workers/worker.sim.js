@@ -142,6 +142,10 @@
     var update = [];
 
     while(!combatDone && turnCount < settings.conditions.turns) {
+      // Last thing to do is increment the turn count
+      turnCount += 1;
+      console.info(`SimWorker Processing Turn: ${turnCount}`);
+
       // Get the participants
       var participants = settings.unitsAll;
 
@@ -150,12 +154,8 @@
         update.push(unitTurnActions(unit));
       });
 
-      sendTurnUpdate(_.flattenDeep(update));
+      sendTurnUpdate(turnCount,update);
       update = [];
-
-      // Last thing to do is increment the turn count
-      turnCount += 1;
-      console.info(`Turn Count: ${turnCount}`);
     }
   }
 
@@ -174,10 +174,14 @@
     return update;
   }
 
-  function sendTurnUpdate(update) {
+  function sendTurnUpdate(turn,update) {
+    var upd = {
+      turn: turn,
+      update: _.flattenDeep(update)
+    };
     postMessage({
       cmd: "update",
-      update: update
+      update: upd
     });
   }
 })();

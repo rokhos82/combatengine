@@ -114,7 +114,11 @@
       console.info(`SimWorker ${message.uuid} is ready!`);
     }
     else if(message.cmd === "update") {
-      console.info(message.update);
+      postMessage({
+        cmd: "update",
+        update: message.update
+      });
+      console.info(`Foreman processing update`);
     }
   };
 })();

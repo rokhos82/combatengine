@@ -27,4 +27,15 @@
     </div>
     </container>
   </container>
+  <container>
+    <h1>Results</h1>
+    <ul>
+      <li ng-repeat="(turn,lines) in $ctrl.results.turns">
+        {{turn}}
+        <ul>
+          <li ng-repeat="line in lines">{{line}}</li>
+        </ul>
+      </li>
+    </ul>
+  </container>
 </container>

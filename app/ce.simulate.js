@@ -14,6 +14,7 @@
       turns: 0
     };
     $this.status = "Ready for setup! Please review the teams below and click 'Setup Combat' when ready to begin.";
+    $this.results = _overseer.getState();
 
     $this.$onInit = function() {
       _log.info("Entering the simulate state");
@@ -25,7 +26,9 @@
       if (!readyCheck()) {
         $this.status = "Both teams must have at least one unit!";
       }
-      //$scope.$apply();
+
+      // Get the current state from overseer
+      $this.results = _overseer.getState();
     };
 
     $this.$onDestroy = function() {

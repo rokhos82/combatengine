@@ -183,7 +183,7 @@ textarea {
   width: 1000px;
   display: grid;
   grid-template-columns: 500px 500px;
-  grid-template-rows: auto auto auto auto ;
+  grid-template-rows: auto auto auto auto auto;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 }

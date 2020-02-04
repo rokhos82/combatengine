@@ -1,6 +1,9 @@
 (function(){
   var overseer = function(_log,_uuid,_objects) {
     var foreman = null;
+    var _OSstate = {
+      turns: {}
+    };
 
     // ForemanWorker object - wraps a Web Worker in a custom interface
     var ForemanWorker = function() {
@@ -24,6 +27,16 @@
       this.thread.postMessage(msg);
     };
 
+    function overseerListener(event) {
+      var msg = event.data;
+
+      if(msg.cmd === "update") {
+        _log.info(`Overseer received an update`);
+        console.info(msg.update);
+        _OSstate.turns[msg.update.turn] = msg.update.update;
+      }
+    }
+
     var os = {
       init: function() {
         _log.info('Initializing the overseer');
@@ -34,6 +47,8 @@
         foreman.addListener(function(e) {
           _log.info(e.data);
         });
+
+        foreman.addListener(overseerListener);
       },
       destroy: function() {
         // Destroy the foreman worker thread
@@ -51,6 +66,9 @@
           cmd: "start",
           uuid: uuid
         })
+      },
+      getState: function(uuid) {
+        return _OSstate;
       }
     };
     return os;
