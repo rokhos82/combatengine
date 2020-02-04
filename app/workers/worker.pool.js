@@ -1,0 +1,5 @@
+(function () {
+  /*
+  **  Simulation Pool Worker
+  */
+})();

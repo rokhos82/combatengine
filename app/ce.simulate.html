@@ -1,5 +1,41 @@
-<p>Welcome to CombatEngine Simulate.</p>
-<button ng-click="$ctrl.start()">Start Combat</button>
-<pre>
-  {{$ctrl.teams | json}}
-</pre>
+<container class="app-body-sim">
+  <container class="sim-conditions">
+    <p>Welcome to CombatEngine Simulate.</p>
+    <form>
+      <div class="sim-conditions-row">
+        <label>Simulation Title</label><input type="text" ng-model="$ctrl.conditions.title" />
+      </div>
+      <div class="sim-conditions-row">
+        <label>Turns to Run</label><input type="number" ng-model="$ctrl.conditions.turns" />
+      </div>
+      <button class="sim-btn" ng-click="$ctrl.setup()">Setup Combat</button><button ng-disabled="!$ctrl.armed" class="sim-btn" ng-click="$ctrl.start()">Start Combat</button>
+    </form>
+  </container>
+  <container class="sim-status">
+    Current status: <span class="sim-status-text">{{$ctrl.status}}</span>
+  </container>
+  <container class="sim-teams">
+    <h1>Teams</h1>
+    <container class="sim-teams-flex">
+    <div class="sim-teams-card" ng-repeat="(label,team) in $ctrl.teams">
+      <h3>Team {{label}}</h3>
+      <ul>
+        <li ng-repeat="(key,unit) in team.units">
+          {{unit.name}} - {{unit.type}} - {{unit.size}}
+        </li>
+      </ul>
+    </div>
+    </container>
+  </container>
+  <container>
+    <h1>Results</h1>
+    <ul>
+      <li ng-repeat="(turn,lines) in $ctrl.results.turns">
+        {{turn}}
+        <ul>
+          <li ng-repeat="line in lines">{{line}}</li>
+        </ul>
+      </li>
+    </ul>
+  </container>
+</container>
