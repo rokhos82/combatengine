@@ -39,6 +39,17 @@
       _groups.add(team,group);
       $this.teams[team] = _groups.list(team);
     };
+
+    $this.loadPreset = function(key) {
+      if(key === "Blue") {
+        _groups.add("Blue",angular.fromJson($this.blueExample));
+        $this.teams["Blue"] = _groups.list("Blue");
+      }
+      else if(key === "Red") {
+        _groups.add("Red",angular.fromJson($this.redExample));
+        $this.teams["Red"] = _groups.list("Red");
+      }
+    };
   }
 
   controller.$inject = ["$scope","ce.app.version","ce.app.group","ce.app.log","ce.app.state"];

@@ -19,6 +19,19 @@ textarea {
   color: orange;
 }
 
+input:read-only {
+  background-color: #fed8b1;
+  border: none;
+}
+
+button {
+  background-color: #cc7000;
+  border: 1px solid orange;
+  color: #000000;
+  margin: 2px;
+  border-radius: 8px 4px;
+}
+
 /* Generic style classes */
 ::selection {
   background: lightgray;
