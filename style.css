@@ -32,6 +32,10 @@ button {
   border-radius: 8px 4px;
 }
 
+button:hover {
+  background-color: orange;
+}
+
 /* Generic style classes */
 ::selection {
   background: lightgray;
@@ -59,6 +63,11 @@ button {
   border: 1px solid #00ff00;
   grid-column: 3;
   grid-row: 1;
+}
+
+.title_text {
+  padding-left: 10px;
+  font-size: 22pt;
 }
 
 .navi {
@@ -93,7 +102,7 @@ button {
 
 .menu {
   border: 1px solid #00ff00;
-  grid-column: 1;
+  grid-column: 1 / span 2;
   grid-row: 4;
 }
 

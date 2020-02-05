@@ -19,7 +19,7 @@
     $this.$onInit = function() {
       _log.info("Entering the simulate state");
       $this.log = _log.list("main");
-      _state.title = "Simulate";
+      _state.title = "Combat Simulation";
       $this.teams["Red"] = _groups.list("Red");
       $this.teams["Blue"] = _groups.list("Blue");
 

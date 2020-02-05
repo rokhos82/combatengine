@@ -25,7 +25,7 @@
     $this.$onInit = function() {
       _log.info("Entering the load state");
       $this.log = _log.list("main");
-      _state.title = "Load Groups";
+      _state.title = "Load Teams";
       $this.teams["Red"] = _groups.list("Red");
       $this.teams["Blue"] = _groups.list("Blue");
       //$scope.$apply();
