@@ -30,6 +30,7 @@ button {
   color: #000000;
   margin: 2px;
   border-radius: 8px 4px;
+  padding: 2px;
 }
 
 button:hover {
@@ -300,4 +301,6 @@ button:hover {
 
 .simMenu > button {
   display: block;
+  margin: 10px;
+  padding: 5px;
 }

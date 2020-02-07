@@ -2,7 +2,7 @@
 var app = angular.module("ce.app", ["ui.router", "ngAnimate", "ngSanitize","ce.service.uuid"]);
 
 // Main application version ////////////////////////////////////////////////////
-app.constant("ce.app.version","0.4.4");
+app.constant("ce.app.version","0.4.5");
 
 app.config(["$stateProvider", "$compileProvider", function($stateProvider, $compileProvider) {
   var states = [{
@@ -24,12 +24,24 @@ app.config(["$stateProvider", "$compileProvider", function($stateProvider, $comp
   },{
     name: 'simulate',
     url: '/simulate',
+    abstract: true,
     views: {
       'main': {
-        component: 'ce.app.simulate'
+        templateUrl: "./app/sim/sim.main.html"
       },
       'menu': {
-        component: 'ce.app.simulate.menu'
+        component: "ce.app.simulate.menu"
+      }
+    }
+  },{
+    name: 'simulate.old',
+    url: '/old',
+    views: {
+      'simMain': {
+        component: 'ce.app.simulate'
+      },
+      'submenu': {
+          templateUrl: "./app/sim/sim.oldSub.html"
       }
     }
   }];
