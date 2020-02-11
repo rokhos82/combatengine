@@ -304,3 +304,12 @@ button:hover {
   margin: 10px;
   padding: 5px;
 }
+
+.simSetup {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(5, 30px);
+}
+
+.simRow {
+}
