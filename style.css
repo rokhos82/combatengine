@@ -308,8 +308,47 @@ button:hover {
 .simSetup {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: repeat(5, 30px);
+  grid-template-rows: repeat(5, 30px) auto repeat(1,30px)
+  width: 100%;
+}
+
+.simSetup > p {
+  padding: 2px;
+  margin-bottom: 10px;
 }
 
 .simRow {
+  width: 100%;
+}
+
+.simRow > input {
+  padding: 2px;
+  margin-right: 2px;
+}
+
+.simRow > label {
+  padding: 2px;
+  margin-right: 2px;
+}
+
+.simRowLabel {
+  width: 200px;
+  text-align: right;
+}
+
+.simRowInput {
+  width: 300px;
+}
+
+.simTeamSelect {
+  width: 200px;
+}
+
+.btnGroup {
+  display: inline-block;
+}
+
+.btn-mid {
+  display: block;
+  vertical-align: middle;
 }
