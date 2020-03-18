@@ -2,21 +2,59 @@
 var app = angular.module("ce.app", ["ui.router", "ngAnimate", "ngSanitize","ce.service.uuid"]);
 
 // Main application version ////////////////////////////////////////////////////
-app.constant("ce.app.version","0.4.2");
+app.constant("ce.app.version","0.4.6");
 
 app.config(["$stateProvider", "$compileProvider", function($stateProvider, $compileProvider) {
   var states = [{
     name: 'news',
     url: '',
-    component: 'ce.app.news'
+    views: {
+      'main': {
+        component: 'ce.app.news'
+      }
+    }
   },{
     name: 'load',
     url: '/load',
-    component: 'ce.app.load'
+    views: {
+      'main': {
+        component: 'ce.app.load'
+      }
+    }
   },{
     name: 'simulate',
     url: '/simulate',
-    component: 'ce.app.simulate'
+    abstract: true,
+    views: {
+      'main': {
+        templateUrl: "./app/sim/sim.main.html"
+      },
+      'menu': {
+        component: "ce.app.simulate.menu"
+      }
+    }
+  },{
+    name: 'simulate.old',
+    url: '/old',
+    views: {
+      'simMain': {
+        component: 'ce.app.simulate'
+      },
+      'submenu': {
+          templateUrl: "./app/sim/sim.oldSub.html"
+      }
+    }
+  },{
+    name: 'simulate.setup',
+    url: '/setup',
+    views: {
+      'simMain': {
+        component: 'ce.app.simulate.setup'
+      },
+      'submenu': {
+        component: "ce.app.simulate.setupMenu"
+      }
+    }
   }];
 
   _.forEach(states, function(state) {

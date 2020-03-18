@@ -15,20 +15,20 @@
         <h3>CombatEngine Prototype</h3>
         <h5>{{$ctrl.appVersion}}</h5>
       </div>
-      <div class="title">{{$ctrl.state.title}}</div>
+      <div class="title">
+        <span class="title_text">{{$ctrl.state.title}}</span>
+      </div>
       <div class="navi">
-        <a ui-sref="news">News</a>
-        <a ui-sref="load">Load</a>
-        <a ui-sref="simulate">Simulation</a>
+        <button ui-sref="news">Home</button>
+        <button ui-sref="load">Teams</button>
+        <button ui-sref="simulate.old">Simulation</button>
       </div>
-      <div class="cli">CLI</div>
-      <div class="menu">Menu</div>
-      <div class="submenu">Submenu</div>
-      <div ui-view class="app-body">
-      </div>
+      <div ui-view="cli" class="cli">CLI</div>
+      <div ui-view="menu" class="menu"></div>
+      <div ui-view="main" class="app-body"></div>
     </div>
     <script src="https://unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
-    <script src="modules/module.uuid.js"></script>    
+    <script src="modules/module.uuid.js"></script>
     <script src="app/ce.app.js"></script>
     <script src="app/services/ce.overseer.js"></script>
     <script src="app/services/ce.objects.js"></script>
@@ -39,5 +39,8 @@
     <script src="app/ce.news.js"></script>
     <script src="app/ce.load.js"></script>
     <script src="app/ce.simulate.js"></script>
+    <script src="app/sim/sim.menu.js"></script>
+    <script src="app/sim/sim.setup.js"></script>
+    <script src="app/sim/sim.setup.menu.js"></script>
   </body>
 </html>

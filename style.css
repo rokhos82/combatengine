@@ -19,6 +19,24 @@ textarea {
   color: orange;
 }
 
+input:read-only {
+  background-color: #fed8b1;
+  border: none;
+}
+
+button {
+  background-color: #cc7000;
+  border: 1px solid orange;
+  color: #000000;
+  margin: 2px;
+  border-radius: 8px 4px;
+  padding: 2px;
+}
+
+button:hover {
+  background-color: orange;
+}
+
 /* Generic style classes */
 ::selection {
   background: lightgray;
@@ -46,6 +64,11 @@ textarea {
   border: 1px solid #00ff00;
   grid-column: 3;
   grid-row: 1;
+}
+
+.title_text {
+  padding-left: 10px;
+  font-size: 22pt;
 }
 
 .navi {
@@ -80,7 +103,7 @@ textarea {
 
 .menu {
   border: 1px solid #00ff00;
-  grid-column: 1;
+  grid-column: 1 / span 2;
   grid-row: 4;
 }
 
@@ -228,7 +251,12 @@ textarea {
   padding: 10px;
   border: 2px solid #00e000;
   background-color: black;
-  box-shadow: 2px 2px 4px orange;
+  border-radius: 10px 5px;
+  /*box-shadow: 2px 2px 4px orange;*/
+}
+
+.sim-teams-card:hover {
+  box-shadow: 0px 0px 2px 2px orange inset;
 }
 
 .sim-teams-card h3 {
@@ -249,7 +277,78 @@ textarea {
   padding: 0px;
 }
 
+.sim-teams-card * li:hover {
+  text-shadow: 1px 1px 4px orange;
+}
+
 .sim-btn {
   margin: 5px;
   padding: 5px;
+}
+
+.simMenuContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.simMenu {
+  grid-column: 1;
+}
+
+.simSubMenu {
+  grid-column: 2;
+}
+
+.simMenu > button {
+  display: block;
+  margin: 10px;
+  padding: 5px;
+}
+
+.simSetup {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(5, 30px) auto repeat(1,30px)
+  width: 100%;
+}
+
+.simSetup > p {
+  padding: 2px;
+  margin-bottom: 10px;
+}
+
+.simRow {
+  width: 100%;
+}
+
+.simRow > input {
+  padding: 2px;
+  margin-right: 2px;
+}
+
+.simRow > label {
+  padding: 2px;
+  margin-right: 2px;
+}
+
+.simRowLabel {
+  width: 200px;
+  text-align: right;
+}
+
+.simRowInput {
+  width: 300px;
+}
+
+.simTeamSelect {
+  width: 200px;
+}
+
+.btnGroup {
+  display: inline-block;
+}
+
+.btn-mid {
+  display: block;
+  vertical-align: middle;
 }

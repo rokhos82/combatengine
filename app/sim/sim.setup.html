@@ -1,0 +1,19 @@
+<container class="simSetup">
+  <p>Provide the information below to help identify this simulation and define how it will be run.</p>
+  <div class="simRow"><label class="simRowLabel">Simulation Name</label><input class="simRowInput" type="text" /></div>
+  <div class="simRow"><label class="simRowLabel">Victory Condition (choose one)</label></div>
+  <div class="simRow"><input type="radio" id="victoryTurns" name="victory" /><label class="simRowLabel" for="victoryTurns">Turns</label><input type="number" /></div>
+  <div class="simRow"><input type="radio" id="victoryDom" name="victory" /><label class="simRowLabel" for="victoryDom">Domination</label><input type="number" /></div>
+  <div class="simRow"><label class="simRowLabel">UUID</label><input class="simRowInput" type="text" readonly="readonly" ng-model="$ctrl.settings.uuid" /></div>
+  <div class="simRow">
+    <select class="simTeamSelect" size=5></select>
+    <div class="btnGroup">
+      <button class="btn-mid">&gt;</button>
+      <button class="btn-mid">&gt;&gt;</button>
+      <button class="btn-mid">&lt;</button>
+      <button class="btn-mid">&lt;&lt;</button>
+    </div>
+    <select class="simTeamSelect" size=5></select>
+  </div>
+  <button>Create</button>
+</container>

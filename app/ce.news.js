@@ -7,7 +7,7 @@
     $this.$onInit = function() {
       _log.info("Entering the news state");
       $this.log = _log.list("main");
-      _state.title = "News";
+      _state.title = "Home";
       //$scope.$apply();
     };
   }
