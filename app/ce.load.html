@@ -17,13 +17,12 @@
     <div>
       <h3>Here are some examples:</h3>
       <div class="row">
-        <label>Example 1:</label><input type="text" ng-model="$ctrl.example" readonly="readonly" />
-      </div>
-      <div class="row">
-        <label>Example 2:</label><input type="text" ng-model="$ctrl.blueExample" readonly="readonly" />
+        <label>Blue Example:</label><input type="text" ng-model="$ctrl.blueExample" readonly="readonly" />
+        <button ng-click="$ctrl.loadPreset('Blue')">Load Example</button>
       </div>
       <div>
-        <label>Example 3:</label><input type="text" ng-model="$ctrl.redExample" readonly="readonly" />
+        <label>Red Example:</label><input type="text" ng-model="$ctrl.redExample" readonly="readonly" />
+        <button ng-click="$ctrl.loadPreset('Red')">Load Example</button>
       </div>
     </div>
   </div>
@@ -38,9 +37,6 @@
       <select ng-options="team as team.label for team in $ctrl.teamOptions track by team.value" ng-model="$ctrl.selectedTeam"></select>
       <button ng-click="$ctrl.parseGroup($ctrl.udl)">Parse</button>
     </div>
-    <!--<div class="row">
-      <button ng-click="$ctrl.fire($ctrl.teams)">Start Combat</button>
-    </div>-->
   </form>
   <container class="app-body-red">
     <h3>Red Fleet</h3>

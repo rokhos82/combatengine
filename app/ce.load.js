@@ -25,7 +25,7 @@
     $this.$onInit = function() {
       _log.info("Entering the load state");
       $this.log = _log.list("main");
-      _state.title = "Load Groups";
+      _state.title = "Load Teams";
       $this.teams["Red"] = _groups.list("Red");
       $this.teams["Blue"] = _groups.list("Blue");
       //$scope.$apply();
@@ -38,6 +38,17 @@
       var team = $this.selectedTeam.label;
       _groups.add(team,group);
       $this.teams[team] = _groups.list(team);
+    };
+
+    $this.loadPreset = function(key) {
+      if(key === "Blue") {
+        _groups.add("Blue",angular.fromJson($this.blueExample));
+        $this.teams["Blue"] = _groups.list("Blue");
+      }
+      else if(key === "Red") {
+        _groups.add("Red",angular.fromJson($this.redExample));
+        $this.teams["Red"] = _groups.list("Red");
+      }
     };
   }
 
