@@ -16,6 +16,10 @@
     $this.status = "Ready for setup! Please review the teams below and click 'Setup Combat' when ready to begin.";
     $this.results = _overseer.getState();
 
+    $this.$on('ce.resultsUpdate',function(event){
+      console.log(event);
+    });
+
     $this.$onInit = function() {
       _log.info("Entering the simulate state");
       $this.log = _log.list("main");
